@@ -1,0 +1,44 @@
+server:
+  http:
+    addr: 0.0.0.0:8000
+    timeout: 1s
+  grpc:
+    addr: 0.0.0.0:9000
+    timeout: 1s
+data:
+  domain: "http://localhost:8050"
+  asana:
+    api_host: https://app.asana.com/api/1.0
+    pat: ""
+    project_gid: "1205962480830589"
+    project_gid_cp: "1206686474861320"
+  docusign:
+    app_account_id: "302fd895-305e-455e-ac8a-7a41ef30b506"
+  box:
+    api_url: "https://api.box.com"
+    upload_url: "https://upload.box.com"
+    new_client_folder_structure_id: "241112327202"
+    client_folder_structure_parent_id: "255166311971"
+    client_folder_structure_parent_id_v2: "335891862904"
+    client_contracts_id: "255166374931" #客户合同存放地方
+    new_data_collection_folder_structure: "262358898399"
+    data_collection_folder_id: "263405591044"
+    data_collection_folder_id_v2: "335891265029"
+    sync_record_review_version: 1
+  use_box_sign: true
+  use_adobe_sign: false
+  resource_path: /Users/garyliao/code/vbc-clients/resource
+  spreadsheet_id: 1L8heU1Did64AHEkV1yhOdM7sE9kZhB1g_S9h_cjRGxE
+  xero:
+    api_url: "https://api.xero.com"
+    tenant_id: "439b685b-049f-4c73-97ef-dd7f485fed3d"
+  zoho:
+    api_url: "https://www.zohoapis.com"
+  google_drive:
+    payments_folder_id: "1OVaJtb0x-xO0iKrQnnIsw56u6Q3j32hf"
+    psych_evaluations_folder_id: "1vHjMD6PNmnKDDqGHuCl-u_x2bdBlZQrX"
+    medical_evaluations_folder_id: "1R4I57vrndC20_KSqIuri7MEF3DA90AiR"
+  email_monitor:
+    cc:
+      - "stefan.lin.1987@gmail.com"
+    re_forward_seconds: 30

@@ -1,0 +1,44 @@
+server:
+  http:
+    addr: 0.0.0.0:8000
+    timeout: 1s
+  grpc:
+    addr: 0.0.0.0:9000
+    timeout: 1s
+data:
+  domain: "https://app.vetbenefitscenter.com"
+  asana:
+    api_host: https://app.asana.com/api/1.0
+    pat: ""
+    project_gid: "1206472580135542" # VS
+    project_gid_cp: "1206686474861317"
+  docusign:
+    app_account_id: "302fd895-305e-455e-ac8a-7a41ef30b506"
+  box:
+    api_url: "https://api.box.com"
+    upload_url: "https://upload.box.com"
+    new_client_folder_structure_id: "241112327202"
+    client_folder_structure_parent_id: "241109085470"
+    client_folder_structure_parent_id_v2: "324554262863"
+    client_contracts_id: "241182558605" # 生产环境：241182558605 测试环境：255166374931
+    new_data_collection_folder_structure: "262358898399"
+    data_collection_folder_id: "263406803830"
+    data_collection_folder_id_v2: "324551562796"
+    sync_record_review_version: 1
+  use_box_sign: true
+  use_adobe_sign: false
+  resource_path: /app/resource
+  spreadsheet_id: 1QpgIryvxx4JbLqBbsHB2dNce2cqyhYLuxVaQaf5Gxcc
+  xero:
+    api_url: "https://api.xero.com"
+    tenant_id: "439b685b-049f-4c73-97ef-dd7f485fed3d"
+  zoho:
+    api_url: "https://www.zohoapis.com"
+  google_drive:
+    payments_folder_id: "1QMZwVXbT_4rPMJ_dqrNqv58jaxzPjYkn"
+    psych_evaluations_folder_id: "1SUd3d2-lQQWiorIMKjSPhgdZXZxIOj6W"
+    medical_evaluations_folder_id: "1IorL0vNpVcKiTL3oZ_g_1JziiIcWLnLs"
+  email_monitor:
+    cc:
+      - info@vetbenefitscenter.com
+    re_forward_seconds: 86400

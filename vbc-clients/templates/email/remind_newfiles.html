@@ -1,0 +1,50 @@
+{{template "top.html"}}
+          <div style="Margin:0 auto;min-width:320px;max-width:550px;word-wrap:break-word;word-break:break-word;background-color:transparent">
+            <div style="border-collapse:collapse;display:table;width:100%;height:100%;background-color:transparent">
+
+
+              <div style="max-width:320px;min-width:550px;display:table-cell;vertical-align:top">
+                <div style="background-color:#ffffff;height:100%;width:100%!important">
+                  <div style="box-sizing:border-box;height:100%;padding:25px;border-top:5px solid #000000;border-left:0px solid transparent;border-right:0px solid transparent;border-bottom:0px solid transparent">
+
+                    <table style="font-family:arial,helvetica,sans-serif" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+                      <tbody>
+                      <tr>
+                        <td style="word-break:break-word;padding:10px 10px 20px;font-family:arial,helvetica,sans-serif" align="left">
+
+                          <div style="font-size:14px;line-height:170%;text-align:left;word-wrap:break-word">
+                            <p style="font-size:14px;line-height:170%"><span style="font-size:16px;line-height:27.2px">Hi {{.FullName}},</span></p>
+                            <p style="font-size:14px;line-height:170%">&nbsp;</p>
+                            <p style="font-size:14px;line-height:170%"><span style="font-size:16px;line-height:27.2px">This is a reminder that new client files have been uploaded. Here are the details:</span></p>
+                            <p style="font-size:14px;line-height:170%">
+                            <table>
+                              <tr><td colspan="2" style="font-size:14px;line-height:170%"><b>Client Case Name: </b>{{.ClientCaseName}}</td></tr>
+
+                            {{range  $index, $value:=.UpdateFiles}}
+                            <tr><td valign="top" style="font-size:13px;line-height:170%;width: 15px;">{{inc $index}}.</td>
+                                <td style="font-size:13px;line-height:170%"><b>Original Source File: </b><a href="https://veteranbenefitscenter.app.box.com/file/{{.SourceBoxResId}}" target="_blank" onmouseover="this.style.color='#3D5E86'" onmouseout="this.style.color='black'" style="text-decoration: none;color: #000000;">{{$value.SourceBoxPath}}{{$value.BoxResName}}</a><br/>
+                                  <b>Copied File Destination: </b><a href="https://veteranbenefitscenter.app.box.com/file/{{.BoxResId}}" target="_blank" onmouseover="this.style.color='#3D5E86'" onmouseout="this.style.color='black'" style="text-decoration: none;color: #000000;">{{.BoxPath}}{{.BoxResName}}</a>
+                                </td></tr>
+                            {{end}}
+                            </table>
+                            </p>
+                            <p style="font-size:14px;line-height:170%">&nbsp;</p>
+                            <p style="font-size:14px;line-height:170%"><span style="font-size:16px;line-height:27.2px">Please follow up on these updates.  </span></p>
+                            <p style="font-size:14px;line-height:170%"><span style="font-size:16px;line-height:27.2px">Thanks!  </span></p>
+                          </div>
+
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+
+
+
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+{{template "bottom.html"}}

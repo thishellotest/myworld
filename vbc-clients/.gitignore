@@ -1,0 +1,16 @@
+.env
+.docker_build/
+bin/
+.idea/
+tests/**/*.xlsx
+tests/.env*
+tests/*.pdf
+tests/*/tmp_*
+tests/wire_gen.go
+
+*.log
+*.local
+.DS_Store
+
+/configs/config_dev.yaml
+/front

@@ -1,0 +1,216 @@
+# Generated with protoc-gen-openapi
+# https://github.com/google/gnostic/tree/master/cmd/protoc-gen-openapi
+
+openapi: 3.0.3
+info:
+    title: Polling API
+    version: 0.0.1
+paths:
+    /polling/nodes:
+        get:
+            tags:
+                - Polling
+            description: 节点情况
+            operationId: Polling_Nodes
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/NodesReply'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /polling/register:
+        post:
+            tags:
+                - Polling
+            description: 节点注册
+            operationId: Polling_Register
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/RegisterRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/RegisterReply'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /polling/report:
+        post:
+            tags:
+                - Polling
+            description: 上报详情
+            operationId: Polling_Report
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/ReportRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ReportReply'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /polling/tasks:
+        post:
+            tags:
+                - Polling
+            description: 需要巡检的任务
+            operationId: Polling_Tasks
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/TasksRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/TasksReply'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+components:
+    schemas:
+        GoogleProtobufAny:
+            type: object
+            properties:
+                '@type':
+                    type: string
+                    description: The type of the serialized message.
+            additionalProperties: true
+            description: Contains an arbitrary serialized message along with a @type that describes the type of the serialized message.
+        Node:
+            type: object
+            properties:
+                endpointId:
+                    type: string
+                expiredAt:
+                    type: string
+                hasExpired:
+                    type: boolean
+        NodesReply:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+                nodes:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Node'
+        RegisterReply:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+        RegisterRequest:
+            type: object
+            properties:
+                endpointId:
+                    type: string
+                endpointName:
+                    type: string
+        ReportReply:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+        ReportRequest:
+            type: object
+            properties:
+                endpointId:
+                    type: string
+                transId:
+                    type: string
+                taskId:
+                    type: integer
+                    format: int32
+                inspectionResult:
+                    type: integer
+                    format: int32
+                inspectionDetail:
+                    type: string
+        Status:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    description: The status code, which should be an enum value of [google.rpc.Code][google.rpc.Code].
+                    format: int32
+                message:
+                    type: string
+                    description: A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the [google.rpc.Status.details][google.rpc.Status.details] field, or localized by the client.
+                details:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/GoogleProtobufAny'
+                    description: A list of messages that carry the error details.  There is a common set of message types for APIs to use.
+            description: 'The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find prod more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors).'
+        Task:
+            type: object
+            properties:
+                taskId:
+                    type: integer
+                    format: int32
+                buzId:
+                    type: string
+                protocol:
+                    type: string
+                address:
+                    type: string
+        TasksReply:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+                tasks:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Task'
+        TasksRequest:
+            type: object
+            properties: {}
+tags:
+    - name: Polling

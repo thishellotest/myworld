@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VBC: List of Client Cases without a Task</title>
+</head>
+<body>
+
+<div style="margin:0;padding:0;background-color:#f2f2f2;color:#000000">
+
+    <table style="border-collapse:collapse;table-layout:fixed;border-spacing:0;vertical-align:top;min-width:320px;Margin:0 auto;background-color:#f2f2f2;width:100%" cellpadding="0" cellspacing="0">
+        <tbody>
+        <tr style="vertical-align:top">
+            <td style="word-break:break-word;border-collapse:collapse!important;vertical-align:top">
+
+
+                <div style="padding:10px 0px 0px;background-color:transparent">
+                    <div style="Margin:0 auto;min-width:320px;max-width:720px;word-wrap:break-word;word-break:break-word;background-color:transparent">
+                        <div style="border-collapse:collapse;display:table;width:100%;height:100%;background-color:transparent">
+
+                            <div style="min-width:320px;max-width:720px;display:table-cell;vertical-align:top">
+                                <div style="height:100%;width:100%!important">
+                                    <div style="box-sizing:border-box;height:100%;padding:0px;border-top:0px solid transparent;border-left:0px solid transparent;border-right:0px solid transparent;border-bottom:0px solid transparent">
+
+                                        <table style="font-family:arial,helvetica,sans-serif" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+                                            <tbody>
+                                            <tr>
+                                                <td style="word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif" align="left">
+
+                                                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                                        <tbody><tr>
+                                                            <td style="padding-right:0px;padding-left:0px" align="left">
+                                                                <a href="#">
+                                                                    <img align="left" border="0" src="https://vbc-clients-dc8969d0b977.herokuapp.com/assets/logo.png" alt="VBC" title="VBC" style="outline:none;text-decoration:none;clear:both;display:inline-block!important;border:none;height:auto;float:none;width:25%;max-width:130px" width="130" class="CToWUd" data-bit="iit">
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody></table>
+
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div style="padding:0px 0px 10px;background-color:transparent">
+                    <div style="Margin:0 auto;min-width:320px;max-width:720px;word-wrap:break-word;word-break:break-word;background-color:transparent">
+                        <div style="border-collapse:collapse;display:table;width:100%;height:100%;background-color:transparent">
+                            <div style="min-width:320px;max-width:720px;display:table-cell;vertical-align:top">
+                                <div style="background-color:#ffffff;height:100%;width:100%!important">
+                                    <div style="box-sizing:border-box;height:100%;padding:25px;border-top:5px solid #000000;border-left:0px solid transparent;border-right:0px solid transparent;border-bottom:0px solid transparent">
+
+                                        <table style="font-family:arial,helvetica,sans-serif" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+                                            <tbody>
+                                            <tr>
+                                                <td style="word-break:break-word;padding:10px 10px 20px;font-family:arial,helvetica,sans-serif" align="left">
+                                                    <div style="font-size:14px;line-height:170%;text-align:left;word-wrap:break-word">
+                                                        <p style="font-size:14px;line-height:170%"><span style="font-size:16px;line-height:27.2px">Hi All,</span></p>
+                                                        <p style="font-size:14px;line-height:170%">&nbsp;</p>
+                                                        <p style="font-size:14px;line-height:170%"><span style="font-size:16px;line-height:27.2px">The following is list of client cases without a task.</span></p>
+                                                        <p style="font-size:14px;line-height:170%">
+                                                        {{if .Items | len | eq 0}}
+                                                            No Client Cases found.
+                                                        {{else}}
+                                                        <table>
+                                                        {{range .Items}}
+                                                            <tr><td  style="font-size:14px;line-height:170%"><b>{{.StagesName}}</b></td></tr>
+                                                            <tr><td valign="top" style="font-size:13px;line-height:170%;width: 100%;">
+                                                                <table style="font-size:14px;border: 1px solid #808080;width: 100%;table-layout: fixed;">
+                                                                    <tr><td style="font-size:14px;border: 0; background-color: #f2f2f2; padding: 3px;margin: 0;width: 30%;">Client Case Name</td>
+                                                                        <td style="font-size:14px;border: 0; background-color: #f2f2f2; padding: 3px;margin: 0;width: 30%;">Created Time</td>
+                                                                        <td style="font-size:14px;border: 0; background-color: #f2f2f2; padding: 3px;margin: 0;width: 10%;text-align: center;">Is it new?</td>
+                                                                        <td style="font-size:14px;border: 0; background-color: #f2f2f2; padding: 3px;margin: 0;width: 30%;">Link</td>
+                                                                    </tr>
+                                                                    {{range .Items}}
+                                                                    <tr><td style="font-size:14px;border: 0; padding: 3px;margin: 0;">{{.ClientCaseName}}</td>
+                                                                        <td style="font-size:14px;border: 0; padding: 3px;margin: 0;">{{.CreatedTime}}</td>
+                                                                        <td style="font-size:14px;border: 0; padding: 3px;margin: 0;text-align: center;">{{ if .IsNew}}<span style="font-size:14px;color:darkgoldenrod;">Yes</span>{{ else }}<span style="font-size:14px;">No</span>{{ end }}</td>
+                                                                        <td style="font-size:14px;border: 0; padding: 3px;margin: 0;"><a style="font-size:14px;text-decoration: none;color: #000000;" target="_blank" href="https://crm.zoho.com/crm/org847391426/tab/Potentials/{{.Gid}}">{{.Gid}}</a></td>
+                                                                    </tr>
+                                                                    {{end}}
+                                                                </table>
+                                                            </td>
+                                                            </tr>
+                                                        {{end}}
+                                                        </table>
+                                                        {{end}}
+                                                        </p>
+                                                        <p style="font-size:14px;line-height:170%">&nbsp;</p>
+                                                        <p style="font-size:14px;line-height:170%"><span style="font-size:16px;line-height:27.2px">Thanks!  </span></p>
+                                                    </div>
+
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div style="padding:0px;background-color:transparent">
+                    <div style="Margin:0 auto;min-width:320px;max-width:720px;word-wrap:break-word;word-break:break-word;background-color:transparent">
+                        <div style="border-collapse:collapse;display:table;width:100%;height:100%;background-color:transparent">
+
+
+                            <div style="min-width:320px;max-width:720px;display:table-cell;vertical-align:top">
+                                <div style="height:100%;width:100%!important">
+                                    <div style="box-sizing:border-box;height:100%;padding:0px;border-top:0px solid transparent;border-left:0px solid transparent;border-right:0px solid transparent;border-bottom:0px solid transparent">
+
+                                        <table style="font-family:arial,helvetica,sans-serif" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+                                            <tbody>
+                                            <tr>
+                                                <td style="word-break:break-word;padding:20px;font-family:arial,helvetica,sans-serif" align="left">
+
+                                                    <div style="font-size:14px;color:#9c9a9a;line-height:120%;text-align:center;word-wrap:break-word">
+                                                        <p style="font-size:14px;line-height:120%"><span style="font-size:12px;line-height:14.4px">Automation Workflow</span></p>
+                                                        <p style="font-size:14px;line-height:120%"><span style="font-size:12px;line-height:14.4px">Veteran Benefits Center LLC</span></p>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </td>
+        </tr>
+        </tbody>
+    </table></div>
+</body>
+</html>

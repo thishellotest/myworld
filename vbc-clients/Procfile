@@ -1,0 +1,1 @@
+web: /app/bin/vbc -conf /app/configs/config.yaml

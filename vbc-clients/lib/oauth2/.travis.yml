@@ -1,0 +1,13 @@
+language: go
+
+go:
+  - tip
+
+install:
+  - export GOPATH="$HOME/gopath"
+  - mkdir -p "$GOPATH/src/golang.org/x"
+  - mv "$TRAVIS_BUILD_DIR" "$GOPATH/src/vbc/lib/oauth2"
+  - go get -v -t -d vbc/lib/oauth2/...
+
+script:
+  - go test -v vbc/lib/oauth2/...

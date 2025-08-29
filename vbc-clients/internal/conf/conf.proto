@@ -1,0 +1,78 @@
+syntax = "proto3";
+package kratos.api;
+
+option go_package = "vbc/internal/conf;conf";
+
+import "google/protobuf/duration.proto";
+
+message Bootstrap {
+  Server server = 1;
+  Data data = 2;
+}
+
+message Server {
+  message HTTP {
+    string network = 1;
+    string addr = 2;
+    google.protobuf.Duration timeout = 3;
+  }
+  message GRPC {
+    string network = 1;
+    string addr = 2;
+    google.protobuf.Duration timeout = 3;
+  }
+  HTTP http = 1;
+  GRPC grpc = 2;
+}
+
+message Data {
+  message Asana {
+    string api_host = 1;
+    string pat = 2;
+    string project_gid = 3;
+    string project_gid_cp = 4;
+  }
+  message Docusign {
+    string app_account_id = 1;
+  }
+  message Box {
+    string api_url = 1;
+    string upload_url =2;
+    string new_client_folder_structure_id = 3;
+    string client_folder_structure_parent_id = 4;
+    string client_folder_structure_parent_id_v2 = 5;
+    string client_contracts_id = 6;
+    string new_data_collection_folder_structure = 7;
+    string data_collection_folder_id = 8;
+    string data_collection_folder_id_v2 = 9;
+    int32 sync_record_review_version = 10;
+  }
+  message Xero {
+    string api_url = 1;
+    string tenant_id = 2;
+  }
+  message Zoho{
+    string api_url = 1;
+  }
+  message GoogleDrive{
+    string payments_folder_id = 1;
+    string psych_evaluations_folder_id = 2;
+    string medical_evaluations_folder_id = 3;
+  }
+  message EmailMonitor{
+    repeated string cc = 1;
+    int32 re_forward_seconds = 2;
+  }
+  Asana asana = 3;
+  Docusign docusign = 4;
+  Box box = 5;
+  string domain = 6;
+  bool use_box_sign=7;
+  bool use_adobe_sign=8;
+  string resource_path=9;
+  string spreadsheet_id=10;
+  Xero xero = 11;
+  Zoho zoho = 12;
+  GoogleDrive google_drive = 13;
+  EmailMonitor email_monitor = 14;
+}
